@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gmail Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Gmail Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+        <label>First Name:</label>
+        <input type="text" id="fname">
+
+        <label>Last Name:</label>
+        <input type="text" id="lname">
+
+        <label>Email:</label>
+        <input type="text" id="email">
+
+        <label>Password:</label>
+        <input type="password" id="password">
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword">
+
+        <div id="error" class="error"></div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            var fname = document.getElementById("fname").value.trim();
+            var lname = document.getElementById("lname").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var errorMsg = "";
+
+            if (fname === "" || lname === "" || email === "" || password === "" || confirmPassword === "") {
+                errorMsg = "All fields are required.";
+            } else if (!email.includes("@") || !email.includes(".")) {
+                errorMsg = "Enter a valid email.";
+            } else if (password.length < 6) {
+                errorMsg = "Password must be at least 6 characters.";
+            } else if (password !== confirmPassword) {
+                errorMsg = "Passwords do not match.";
+            }
+
+            document.getElementById("error").innerText = errorMsg;
+
+            return errorMsg === "";
+        }
+    </script>
+
+</body>
+</html>

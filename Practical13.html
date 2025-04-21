@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handlers</title>
+</head>
+<body>
+
+    <h2>Basic JavaScript Event Handlers</h2>
+
+    <!-- Click Event Handler -->
+    <button onclick="handleClick()">Click Me</button>
+
+    <hr>
+
+    <!-- Mouseover Event Handler -->
+    <img src="123B2B307.png" alt="Sample Image" onmouseover="handleMouseOver()" width="200">
+
+    <hr>
+
+    <!-- Focus Event Handler -->
+    <input type="text" id="name" onfocus="handleFocus()" placeholder="Focus on me">
+
+    <hr>
+
+    <!-- Blur Event Handler -->
+    <input type="text" id="nameBlur" onblur="handleBlur()" placeholder="Click and then click away">
+
+    <hr>
+
+    <!-- Input Event Handler -->
+    <input type="text" id="userInput" oninput="handleInput()" placeholder="Start typing...">
+
+    <hr>
+
+    <!-- Submit Event Handler (Form Submission) -->
+    <form onsubmit="handleSubmit(event)">
+        <input type="text" id="userName" placeholder="Enter your name">
+        <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <!-- Change Event Handler (Dropdown) -->
+    <select onchange="handleChange()">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="cherry">Cherry</option>
+    </select>
+
+    <script>
+        // 1. Click Event Handler
+        function handleClick() {
+            alert("Button was clicked!");
+        }
+
+        // 2. Mouseover Event Handler
+        function handleMouseOver() {
+            alert("Mouse is over the image!");
+        }
+
+        // 3. Focus Event Handler
+        function handleFocus() {
+            console.log("Input field has gained focus!");
+        }
+
+        // 4. Blur Event Handler
+        function handleBlur() {
+            console.log("Input field has lost focus!");
+        }
+
+        // 5. Input Event Handler
+        function handleInput() {
+            let inputValue = document.getElementById("userInput").value;
+            console.log("User input: " + inputValue);
+        }
+
+        // 6. Submit Event Handler
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent form submission
+            let name = document.getElementById("userName").value;
+            alert("Form submitted! Name: " + name);
+        }
+
+        // 7. Change Event Handler
+        function handleChange() {
+            let selectedValue = document.querySelector("select").value;
+            console.log("Selected option: " + selectedValue);
+        }
+    </script>
+
+</body>
+</html>

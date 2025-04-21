@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #145db2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Facebook Registration</h2>
+
+    <form>
+        <label>First Name:</label>
+        <input type="text" id="fname" onblur="validateFname()">
+        <div id="fnameError" class="error"></div>
+
+        <label>Last Name:</label>
+        <input type="text" id="lname" onblur="validateLname()">
+        <div id="lnameError" class="error"></div>
+
+        <label>Email:</label>
+        <input type="text" id="email" onblur="validateEmail()">
+        <div id="emailError" class="error"></div>
+
+        <label>Password:</label>
+        <input type="password" id="password" onblur="validatePassword()">
+        <div id="passwordError" class="error"></div>
+
+        <label>Gender:</label>
+        <select id="gender" onblur="validateGender()">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+        <div id="genderError" class="error"></div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validateFname() {
+            const fname = document.getElementById("fname").value.trim();
+            document.getElementById("fnameError").innerText = fname === "" ? "First name is required" : "";
+        }
+
+        function validateLname() {
+            const lname = document.getElementById("lname").value.trim();
+            document.getElementById("lnameError").innerText = lname === "" ? "Last name is required" : "";
+        }
+
+        function validateEmail() {
+            const email = document.getElementById("email").value.trim();
+            const valid = email.includes("@") && email.includes(".");
+            document.getElementById("emailError").innerText = !valid ? "Enter a valid email" : "";
+        }
+
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            document.getElementById("passwordError").innerText =
+                password.length < 6 ? "Password must be at least 6 characters" : "";
+        }
+
+        function validateGender() {
+            const gender = document.getElementById("gender").value;
+            document.getElementById("genderError").innerText = gender === "" ? "Select a gender" : "";
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

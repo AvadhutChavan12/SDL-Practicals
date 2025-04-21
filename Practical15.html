@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up and Login</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+        .container {
+            max-width: 300px;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 6px;
+            width: 100%;
+        }
+        button {
+            padding: 6px 12px;
+            margin-top: 10px;
+        }
+        #welcome {
+            font-weight: bold;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <input type="text" id="signupUsername" placeholder="Enter username">
+        <input type="password" id="signupPassword" placeholder="Enter password">
+        <button onclick="signup()">Sign Up</button>
+
+        <hr>
+
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Enter username">
+        <input type="password" id="loginPassword" placeholder="Enter password">
+        <button onclick="login()">Login</button>
+
+        <p id="welcome"></p>
+    </div>
+
+    <script>
+        let savedUsername = "";
+        let savedPassword = "";
+
+        function signup() {
+            let user = document.getElementById("signupUsername").value;
+            let pass = document.getElementById("signupPassword").value;
+
+            if (user === "" || pass === "") {
+                alert("Please fill all sign up fields.");
+            } else {
+                savedUsername = user;
+                savedPassword = pass;
+                alert("Sign up successful!");
+            }
+        }
+
+        function login() {
+            let loginUser = document.getElementById("loginUsername").value;
+            let loginPass = document.getElementById("loginPassword").value;
+
+            if (loginUser === savedUsername && loginPass === savedPassword) {
+                document.getElementById("welcome").innerText = "Welcome, " + savedUsername + "!";
+            } else {
+                alert("Invalid username or password.");
+            }
+        }
+    </script>
+
+</body>
+</html>

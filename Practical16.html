@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+        input, textarea {
+            display: block;
+            margin-bottom: 10px;
+            padding: 6px;
+            width: 100%;
+        }
+        button {
+            padding: 6px 12px;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <label>First Name:</label>
+    <input type="text" id="fname">
+
+    <label>Last Name:</label>
+    <input type="text" id="lname">
+
+    <label>Organization:</label>
+    <input type="text" id="org">
+
+    <label>Hobbies:</label>
+    <textarea id="hobbies" rows="3"></textarea>
+
+    <button onclick="register()">Submit</button>
+
+    <div id="output"></div>
+
+    <script>
+        function register() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let org = document.getElementById("org").value;
+            let hobbies = document.getElementById("hobbies").value;
+
+            if (fname === "" || lname === "" || org === "" || hobbies === "") {
+                alert("Please fill all the fields.");
+            } else {
+                let result = `
+                    <p>First Name: ${fname}</p>
+                    <p>Last Name: ${lname}</p>
+                    <p>Organization: ${org}</p>
+                    <p>Hobbies: ${hobbies}</p>
+                `;
+                document.getElementById("output").innerHTML = result;
+            }
+        }
+    </script>
+
+</body>
+</html>
