@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<student xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="schema.xsd">
-    <name>Avadhut</name>
+<student xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <name>Sample</name>
     <rollno>101</rollno>
     <branch>Computer</branch>
 </student>
